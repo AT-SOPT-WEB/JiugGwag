@@ -159,7 +159,7 @@ main {
 }
 
 .main__content {
-  width: 100%;
+  width: 100vw;
   display: flex;
   padding: 2rem;
   flex-direction: column;
@@ -177,7 +177,7 @@ main {
   width: 100%;
   max-width: 80rem;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   grid-template-rows: repeat(2, 30rem);
   gap: 2rem;
   justify-content: center;
