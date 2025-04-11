@@ -265,3 +265,15 @@ main {
     transform: translateX(-50%);
   }
 }
+
+//footer
+.footer {
+  width: 100vw;
+}
+.footer__description {
+  padding: 2rem;
+  font-size: 2rem;
+  text-align: center;
+  background-color: #1e2caf;
+  color: white;
+}
