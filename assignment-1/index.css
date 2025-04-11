@@ -221,3 +221,47 @@ main {
   color: red;
   cursor: pointer;
 }
+//캐러셀
+.carousel__container {
+  overflow: hidden;
+  width: 100%;
+  margin-top: 5rem;
+}
+
+.carousel__track {
+  display: flex;
+  width: max-content;
+  animation: infiniteScroll 20s linear infinite;
+  background-color: #c8cdfd;
+}
+
+.carousel__container-ogImage,
+.carousel__container-newImage {
+  display: flex;
+}
+
+.carousel__ogImage {
+  width: 20rem;
+  margin-left: 1rem;
+  margin-top: 3rem;
+  background-color: white;
+  border-radius: 10%;
+  transition: transform 0.3s ease;
+}
+
+.carousel__ogImage:hover {
+  transform: scale(1.1);
+}
+
+.carousel__container:hover .carousel__track {
+  animation-play-state: paused;
+}
+
+@keyframes infiniteScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
