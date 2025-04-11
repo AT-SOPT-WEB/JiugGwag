@@ -223,8 +223,7 @@ main {
 }
 //캐러셀
 .carousel__container {
-  overflow: hidden;
-  width: 100%;
+  width: 100vw;
   margin-top: 5rem;
 }
 
@@ -233,6 +232,7 @@ main {
   width: max-content;
   animation: infiniteScroll 25s linear infinite;
   background-color: #c8cdfd;
+  overflow: hidden;
 }
 
 .carousel__container-ogImage,
@@ -268,7 +268,7 @@ main {
 
 //footer
 .footer {
-  width: 100vw;
+  width: 100%;
 }
 .footer__description {
   padding: 2rem;
