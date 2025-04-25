@@ -110,12 +110,6 @@ section {
 }
 body {
   line-height: 1;
-
-  /* 사용자 text 드래그 방지 */
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
 }
 ol,
 ul {
