@@ -23,7 +23,6 @@
   color: var(--color-primary-500);
 }
 
-/* 탭 네비게이션 */
 .todo-nav {
   width: 100%;
 }
@@ -47,26 +46,60 @@
   background-color: var(--color-primary-600);
 }
 
+/* 탭 선택 영역 스타일 업데이트 */
+.tab-item--select {
+  position: relative;
+}
+
 .tab-button {
-  width: 100%;
+  color: var(--color-text-light);
+}
+
+.tab-button--importance {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: var(--spacing-xs);
-  color: var(--color-text-light);
-  font-weight: var(--font-weight-medium);
-  padding: var(--spacing-sm) var(--spacing-md);
-  white-space: nowrap;
 }
 
-.tab-button.is-active {
-  background-color: var(--color-primary-700);
+.select-icon {
+  font-size: 0.8rem;
+  transition: transform var(--transition-speed);
+}
+
+.select-icon.is-active {
+  transform: rotate(180deg);
+}
+
+/* 커스텀 드롭다운 스타일 */
+.custom-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: var(--color-bg-light);
   border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-md);
+  margin-top: var(--spacing-xs);
+  z-index: 5;
+  display: none;
+  overflow: hidden;
 }
 
-.tab-button__icon {
-  width: 1.5rem;
-  height: 1.5rem;
+.custom-dropdown.is-active {
+  display: block;
+}
+
+.custom-dropdown__option {
+  padding: var(--spacing-sm) var(--spacing-md);
+  color: var(--color-text-primary);
+  text-align: center;
+  cursor: pointer;
+  transition: background-color var(--transition-speed);
+}
+
+.custom-dropdown__option:hover {
+  background-color: var(--color-primary-300);
+  color: var(--color-text-light);
 }
 
 /* 메인 콘텐츠 영역 */
