@@ -1,10 +1,12 @@
-html {
-  font-size: 62.5%;
+* {
+  box-sizing: border-box;
 }
+
+html,
 body,
 div,
 span,
-applet,
+todolet,
 object,
 iframe,
 h1,
@@ -88,6 +90,12 @@ video {
   font: inherit;
   vertical-align: baseline;
 }
+
+html {
+  font-size: 62.5%;
+}
+
+/* HTML5 display-role reset for older browsers */
 article,
 aside,
 details,
@@ -102,8 +110,13 @@ section {
   display: block;
 }
 body {
-  padding: 5rem 10rem;
   line-height: 1;
+
+  /* 사용자 text 드래그 방지 */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 ol,
 ul {
@@ -117,10 +130,32 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: "";
+  content: '';
   content: none;
 }
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+button {
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+input {
+  border: none;
+}
+
+select {
+  border: none;
+}
+
+input[type='checkbox']:focus {
+  outline: none;
 }

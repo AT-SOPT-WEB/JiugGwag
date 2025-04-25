@@ -1,0 +1,333 @@
+/* 기본 레이아웃 */
+.todo-container {
+  width: 100%;
+  max-width: 90rem;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  gap: var(--spacing-xl);
+  padding: var(--spacing-xl);
+  border: var(--border-width) solid var(--color-primary-500);
+  background-color: var(--color-bg-main);
+}
+
+.todo-header {
+  width: 100%;
+  text-align: center;
+  padding: var(--spacing-md) 0;
+}
+
+.todo-title {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary-500);
+}
+
+/* 탭 네비게이션 */
+.todo-nav {
+  width: 100%;
+}
+
+.tab-list {
+  display: flex;
+  gap: var(--spacing-xl);
+}
+
+.tab-item {
+  width: 7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--border-radius-md);
+  background-color: var(--color-primary-500);
+  transition: background-color var(--transition-speed);
+}
+
+.tab-item:hover {
+  background-color: var(--color-primary-600);
+}
+
+.tab-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  color: var(--color-text-light);
+  font-weight: var(--font-weight-medium);
+  padding: var(--spacing-sm) var(--spacing-md);
+  white-space: nowrap;
+}
+
+.tab-button.is-active {
+  background-color: var(--color-primary-700);
+  border-radius: var(--border-radius-md);
+}
+
+.tab-button__icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* 메인 콘텐츠 영역 */
+.todo-main {
+  width: 100%;
+  padding: var(--spacing-2xl) var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  border-radius: var(--border-radius-md);
+  background-color: var(--color-bg-medium);
+}
+
+/* Todo 입력 폼 */
+.todo-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+.todo-form__input-group {
+  width: 100%;
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.todo-form__input {
+  flex: 1;
+  height: 4rem;
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-md);
+  background-color: var(--color-bg-light);
+  border: var(--border-width) solid var(--color-gray-400);
+  font-size: var(--font-size-md);
+  transition: outline var(--transition-speed);
+}
+
+.todo-form__input:focus {
+  outline: var(--border-width) solid var(--color-primary-500);
+}
+
+.todo-form__select {
+  width: 10rem;
+  padding: var(--spacing-sm);
+  border-radius: var(--border-radius-md);
+  border: var(--border-width) solid var(--color-gray-400);
+  font-size: var(--font-size-md);
+  transition: outline var(--transition-speed);
+}
+
+.todo-form__select:focus {
+  outline: var(--border-width) solid var(--color-primary-500);
+}
+
+.todo-form__action-group {
+  display: flex;
+  gap: var(--spacing-md);
+  align-self: flex-end;
+}
+
+/* 버튼 스타일 */
+.button {
+  min-width: 7rem;
+  padding: var(--spacing-md);
+  text-align: center;
+  border-radius: var(--border-radius-md);
+  font-weight: var(--font-weight-medium);
+  transition: background-color var(--transition-speed);
+  cursor: pointer;
+}
+
+.button--primary {
+  background-color: var(--color-primary-500);
+  color: var(--color-text-light);
+}
+
+.button--primary:hover {
+  background-color: var(--color-primary-600);
+}
+
+.button--success {
+  background-color: var(--color-success);
+  color: var(--color-text-light);
+}
+
+.button--success:hover {
+  background-color: #3d8b40;
+}
+
+.button--danger {
+  background-color: var(--color-danger);
+  color: var(--color-text-light);
+}
+
+.button--danger:hover {
+  background-color: #d32f2f;
+}
+
+/* Todo 테이블 */
+.todo-list {
+  width: 100%;
+}
+
+.todo-table {
+  width: 100%;
+  border-radius: var(--border-radius-md);
+  background-color: var(--color-bg-light);
+  border-collapse: collapse;
+  table-layout: fixed;
+  box-shadow: var(--shadow-sm);
+}
+
+.todo-table,
+.todo-table th,
+.todo-table td {
+  border: var(--border-width) solid var(--color-gray-200);
+  border-collapse: collapse;
+}
+
+.todo-table__col--checkbox {
+  width: 10%;
+}
+
+.todo-table__col--importance {
+  width: 15%;
+}
+
+.todo-table__col--status {
+  width: 15%;
+}
+
+.todo-table__col--content {
+  width: 60%;
+}
+
+.todo-table__head {
+  background-color: var(--color-primary-400);
+}
+
+.todo-table th {
+  vertical-align: middle;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-light);
+  padding: var(--spacing-md);
+}
+
+.todo-table td {
+  text-align: center;
+  vertical-align: middle;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  height: 4rem;
+  padding: var(--spacing-md);
+  color: var(--color-text-primary);
+}
+
+.todo-table__checkbox-all,
+.todo-table__checkbox-item {
+  width: 1.4rem;
+  height: 1.4rem;
+  cursor: pointer;
+}
+
+.todo-table__importance--1 {
+  color: var(--color-success);
+}
+
+.todo-table__importance--2 {
+  color: var(--color-warning);
+}
+
+.todo-table__importance--3 {
+  color: var(--color-danger);
+}
+
+.todo-table__status--completed {
+  color: var(--color-success);
+}
+
+.todo-table__status--uncompleted {
+  color: var(--color-danger);
+}
+
+.todo-table__content--completed {
+  text-decoration: line-through;
+  color: var(--color-gray-500);
+}
+
+/* 모달 */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+  display: none;
+}
+
+.modal {
+  width: 30rem;
+  height: 20rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-xl);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--color-bg-light);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  z-index: 20;
+  display: none;
+}
+
+.modal__message {
+  margin-bottom: var(--spacing-lg);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  text-align: center;
+  padding: 0 var(--spacing-xl);
+}
+
+.modal__close-button {
+  background-color: var(--color-primary-400);
+  color: var(--color-text-light);
+}
+
+.modal__close-button:hover {
+  background-color: var(--color-primary-500);
+}
+
+/* 미디어 쿼리 */
+@media (max-width: 768px) {
+  .todo-form__input-group {
+    flex-direction: column;
+  }
+  
+  .todo-form__select {
+    width: 100%;
+  }
+  
+  .todo-form__action-group {
+    align-self: stretch;
+    justify-content: space-between;
+  }
+  
+  .tab-list {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .modal {
+    width: 90%;
+    max-width: 30rem;
+  }
+}

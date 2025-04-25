@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TODO 곽지욱</title>
+    <link rel="stylesheet" href="./style/reset.css" />
+    <link rel="stylesheet" href="./style/theme.css" />
+    <link rel="stylesheet" href="./style/style.css" />
+    <script type="module" src="./main.js"></script>
+  </head>
+  <body>
+    <div class="todo-container">
+      <header class="todo-header">
+        <h1 class="todo-title">Todo 곽지욱</h1>
+      </header>
+      
+      <nav class="todo-nav">
+        <ul class="tab-list">
+          <li class="tab-item">
+            <button type="button" class="tab-button tab-button--all is-active">전체</button>
+          </li>
+          <li class="tab-item">
+            <button type="button" class="tab-button tab-button--completed">완료</button>
+          </li>
+          <li class="tab-item">
+            <button type="button" class="tab-button tab-button--uncompleted">미완료</button>
+          </li>
+          <li class="tab-item">
+            <button type="button" class="tab-button tab-button--importance">
+              중요도
+              <img
+                src="./assets/icons/dropdownIcon.png"
+                alt="드롭다운 아이콘"
+                class="tab-button__icon"
+              />
+            </button>
+          </li>
+        </ul>
+      </nav>
+
+      <main class="todo-main">
+        <section class="todo-form">
+          <div class="todo-form__input-group">
+            <input type="text" class="todo-form__input" placeholder="할 일을 입력하세요" aria-label="할 일 입력" />
+            <select name="importance" id="importance-select" class="todo-form__select" aria-label="중요도 선택">
+              <option value="" disabled selected>중요도 선택</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+            <button type="button" class="button button--primary todo-form__add-button">추가</button>
+          </div>
+
+          <div class="todo-form__action-group">
+            <button type="button" class="button button--danger todo-form__delete-button">삭제</button>
+            <button type="button" class="button button--success todo-form__complete-button">완료</button>
+          </div>
+        </section>
+
+        <section class="todo-list">
+          <table class="todo-table">
+            <colgroup>
+              <col class="todo-table__col--checkbox" />
+              <col class="todo-table__col--importance" />
+              <col class="todo-table__col--status" />
+              <col class="todo-table__col--content" />
+            </colgroup>
+            <thead class="todo-table__head">
+              <tr>
+                <th scope="col"><input type="checkbox" class="todo-table__checkbox-all" aria-label="모두 선택" /></th>
+                <th scope="col">중요도</th>
+                <th scope="col">완료 여부</th>
+                <th scope="col">할 일</th>
+              </tr>
+            </thead>
+            <tbody class="todo-table__body"></tbody>
+          </table>
+        </section>
+      </main>
+    </div>
+
+    <div class="modal-overlay" aria-hidden="true"></div>
+    <div class="modal" role="dialog" aria-labelledby="modal-title" aria-modal="true">
+      <p id="modal-title" class="modal__message"></p>
+      <button type="button" class="button modal__close-button">닫기</button>
+    </div>
+  </body>
+</html>
