@@ -26,8 +26,14 @@
           <li class="tab-item">
             <button type="button" class="tab-button tab-button--uncompleted">미완료</button>
           </li>
-          <li class="tab-item">
-            <select class="tab-button tab-button--importance">
+          <li class="tab-item tab-item--select">
+            <button type="button" class="tab-button tab-button--importance">중요도 <span class="select-icon">▼</span></button>
+            <div class="custom-dropdown">
+              <div class="custom-dropdown__option" data-value="1">⭐️</div>
+              <div class="custom-dropdown__option" data-value="2">⭐️⭐️</div>
+              <div class="custom-dropdown__option" data-value="3">⭐️⭐️⭐️</div>
+            </div>
+            <select class="tab-select tab-select--importance" style="display: none;">
               <option value="1">⭐️</option>
               <option value="2">⭐️⭐️</option>
               <option value="3">⭐️⭐️⭐️</option>
