@@ -178,13 +178,11 @@ const handleImportanceTab = (event) => {
   const dropdown = event.currentTarget.nextElementSibling;
   const icon = event.currentTarget.querySelector('.select-icon');
   
-  // 드롭다운 토글
   dropdown.classList.toggle('is-active');
   if (icon) {
     icon.classList.toggle('is-active');
   }
   
-  // 다른 영역 클릭시 드롭다운 닫기
   const closeDropdown = (e) => {
     if (!event.currentTarget.contains(e.target) && !dropdown.contains(e.target)) {
       dropdown.classList.remove('is-active');
