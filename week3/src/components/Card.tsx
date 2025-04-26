@@ -2,15 +2,15 @@ import React from 'react'
 
 
 const NameKo = ({ name }) => {
-  return <p>{name}</p>
+  return <p>이름 : {name}</p>
 }
 
 const NameEn = ({ name }) => {
-  return <p>{name}</p>
+  return <p>영문이름{name}</p>
 }
 
 const GithubId = ({ id }) => {
-  return <p>{id}</p>
+  return <p>깃허브{id}</p>
 }
 
 
