@@ -1,9 +1,9 @@
 .card__container {
-    padding: 16px;
-    margin: 16px;
-    width: 200px;
-    height: 150px;
-  
-    border-radius: 8px;
-    background-color: skyblue;
+  padding: 16px;
+  margin: 16px;
+  width: 200px;
+  height: 150px;
+
+  border-radius: 8px;
+  background-color: skyblue;
 }
