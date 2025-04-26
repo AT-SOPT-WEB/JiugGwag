@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 const NameKo = ({ name }) => {
   return <p>{name}</p>
 }
