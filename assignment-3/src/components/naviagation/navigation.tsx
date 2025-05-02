@@ -1,18 +1,19 @@
-import * as styles from "./navigation.css";
+import { navigationButton } from "./navigation.css";
 
 interface NavigationProps {
   texts: string[];
-  onClick?: (text: string) => void;
+  selectedIndex: number;
+  onClick?: (index: number) => void;
 }
 
-const Navigation = ({ texts, onClick }: NavigationProps) => {
+const Navigation = ({ texts, selectedIndex, onClick }: NavigationProps) => {
   return (
     <>
       {texts.map((text, index) => (
         <button
-          className={styles.navigationButton}
+          className={navigationButton({ isSelected: index === selectedIndex })}
           key={index}
-          onClick={() => onClick?.(text)}
+          onClick={() => onClick?.(index)}
         >
           {text}
         </button>
