@@ -1,10 +1,13 @@
+import ThemeProvider from "./components/themeProvider.tsx";
 import Home from "./pages/home";
 import "./styles/global.css.ts";
 
 function App() {
   return (
     <>
-      <Home />
+      <ThemeProvider>
+        <Home />
+      </ThemeProvider>
     </>
   );
 }
