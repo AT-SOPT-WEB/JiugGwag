@@ -8,7 +8,7 @@ interface GihhubDataResponse {
   avatar_url: string;
   name: string;
   login: string;
-  bio: string | null;
+  bio: string | "";
   followers: number;
   following: number;
 }
@@ -47,7 +47,7 @@ const Github = () => {
               <Card.ProfileImage imageUrl={data.avatar_url} />
               <Card.Name name={data.name} />
               <Card.UserId userId={data.login} />
-              <Card.UserDescription description={data.bio || "설명 없음"} />
+              <Card.UserDescription description={data.bio} />
               <Card.Button
                 followers={data.followers}
                 following={data.following}
