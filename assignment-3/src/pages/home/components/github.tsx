@@ -29,6 +29,10 @@ const Github = () => {
     }
   };
 
+  const handleOnchange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUser(e.target.value);
+  };
+
   return (
     <>
       <section className={styles.gihubContainer}>
@@ -36,7 +40,7 @@ const Github = () => {
           <SearchBar
             placeholder="GitHub 프로필을 입력하세요"
             value={user}
-            onChange={(e) => setUser(e.target.value)}
+            onChange={handleOnchange}
             onKeyDown={handleKeyDown}
           />
         </div>
