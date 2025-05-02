@@ -17,8 +17,8 @@ const Home = () => {
           onClick={setSelectedIndex}
         />
       </Header>
-      <If condition={selectedIndex} else={<BaseBallGame />}>
-        <Github />
+      <If condition={selectedIndex} else={<Github />}>
+        <BaseBallGame />
       </If>
     </>
   );

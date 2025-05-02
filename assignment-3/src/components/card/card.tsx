@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import * as styles from "./card.css";
+
 interface RootProps {
   children: ReactNode;
 }
@@ -30,15 +31,15 @@ const Root = ({ children }: RootProps) => {
 };
 
 const Name = ({ name }: NameProps) => {
-  <p className={styles.cardNameText}>{name}</p>;
+  return <p className={styles.cardNameText}>{name}</p>;
 };
 
 const UserId = ({ userId }: UserIdProps) => {
-  <p className={styles.subText}>{userId}</p>;
+  return <p className={styles.subText}>{userId}</p>;
 };
 
 const UserDescription = ({ description }: UserDescriptionProps) => {
-  <p className={styles.subText}>{description}</p>;
+  return <p className={styles.subText}>{description}</p>;
 };
 
 const Button = ({ followers, following }: ButtonProps) => {
@@ -62,7 +63,7 @@ const Button = ({ followers, following }: ButtonProps) => {
 };
 
 const ProfileImage = ({ imageUrl }: ProfileImageProps) => {
-  <img src={imageUrl}></img>;
+  return <img src={imageUrl} alt="Profile" />;
 };
 
 const Card = {

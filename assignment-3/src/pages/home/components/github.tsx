@@ -1,11 +1,62 @@
+import { useState } from "react";
 import SearchBar from "../../../components/searchBar/search-bar";
+import { useCustomQuery } from "../../../utils/useCustomQuery";
 import * as styles from "./github.css";
+import Card from "../../../components/card/card";
+
+interface GihhubDataResponse {
+  avatar_url: string;
+  name: string;
+  login: string;
+  bio: string | null;
+  followers: number;
+  following: number;
+}
+
 const Github = () => {
+  const [user, setUser] = useState("");
+  const [queryUser, setQueryUser] = useState("");
+
+  const isEnabled = !!queryUser;
+  const { data, isLoading, error } = useCustomQuery<GihhubDataResponse>(
+    `https://api.github.com/users/${queryUser}`,
+    isEnabled,
+  );
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter" && user.trim()) {
+      setQueryUser(user.trim());
+    }
+  };
+
   return (
     <>
-      <div className={styles.gihubContainer}>
-        <SearchBar placeholder="GitHub 프로필을 입력하세요" />
-      </div>
+      <section className={styles.gihubContainer}>
+        <div>
+          <SearchBar
+            placeholder="GitHub 프로필을 입력하세요"
+            value={user}
+            onChange={(e) => setUser(e.target.value)}
+            onKeyDown={handleKeyDown}
+          />
+          {isLoading && <p>로딩 중...</p>}
+          {error && <p>에러: {error.message}</p>}
+        </div>
+        <div>
+          {data && (
+            <Card.Root>
+              <Card.ProfileImage imageUrl={data.avatar_url} />
+              <Card.Name name={data.name} />
+              <Card.UserId userId={data.login} />
+              <Card.UserDescription description={data.bio || "설명 없음"} />
+              <Card.Button
+                followers={data.followers}
+                following={data.following}
+              />
+            </Card.Root>
+          )}
+        </div>
+      </section>
     </>
   );
 };
