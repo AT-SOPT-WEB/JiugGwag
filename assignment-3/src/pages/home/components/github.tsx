@@ -18,7 +18,7 @@ const Github = () => {
   const [queryUser, setQueryUser] = useState("");
 
   const isEnabled = !!queryUser;
-  const { data, isLoading, error } = useCustomQuery<GihhubDataResponse>(
+  const { data, isLoading } = useCustomQuery<GihhubDataResponse>(
     `https://api.github.com/users/${queryUser}`,
     isEnabled,
   );
@@ -39,11 +39,10 @@ const Github = () => {
             onChange={(e) => setUser(e.target.value)}
             onKeyDown={handleKeyDown}
           />
-          {isLoading && <p>로딩 중...</p>}
-          {error && <p>에러: {error.message}</p>}
         </div>
-        <div>
-          {data && (
+        {isLoading && <p>로딩 중</p>}
+        {data && (
+          <div>
             <Card.Root>
               <Card.ProfileImage imageUrl={data.avatar_url} />
               <Card.Name name={data.name} />
@@ -54,8 +53,8 @@ const Github = () => {
                 following={data.following}
               />
             </Card.Root>
-          )}
-        </div>
+          </div>
+        )}
       </section>
     </>
   );

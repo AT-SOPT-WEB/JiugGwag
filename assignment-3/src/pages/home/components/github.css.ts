@@ -5,5 +5,7 @@ export const gihubContainer = style({
   height: "100svh",
   display: "flex",
   justifyContent: "center",
-  marginTop: "4rem",
+  flexDirection: "column",
+  alignItems: "center",
+  gap: "2rem",
 });
