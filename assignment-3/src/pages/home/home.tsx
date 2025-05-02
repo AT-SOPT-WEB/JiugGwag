@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Header from "../components/header/header";
-import Navigation from "../components/naviagation/navigation";
+import Header from "../../components/header/header";
+import Navigation from "../../components/naviagation/navigation";
 
 const Home = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -12,6 +12,7 @@ const Home = () => {
         selectedIndex={selectedIndex}
         onClick={setSelectedIndex}
       />
+      {/* <If condition={selectedIndex} else={}></If> */}
     </Header>
   );
 };

@@ -1,5 +1,5 @@
 import ThemeProvider from "./components/themeProvider.tsx";
-import Home from "./pages/home";
+import Home from "./pages/home/home.tsx";
 import "./styles/global.css.ts";
 
 function App() {
