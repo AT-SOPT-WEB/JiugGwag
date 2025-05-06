@@ -10,7 +10,6 @@ const Github = () => {
   const [isCardVisible, setIsCardVisible] = useState(false);
 
   const { data, isLoading, error } = useGithubData(queryUser);
-  console.log(data?.html_url);
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && user.trim()) {
