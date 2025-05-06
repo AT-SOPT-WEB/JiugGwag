@@ -42,6 +42,10 @@ const Github = () => {
     setRecentUsers(getRecentUsers());
   };
 
+  const handleChipClick = (keyword: string) => {
+    setQueryUser(keyword);
+  };
+
   return (
     <>
       <section className={styles.gihubContainer}>
@@ -63,7 +67,11 @@ const Github = () => {
         {data && !error && isCardVisible && (
           <div className={styles.contentContainer}>
             <div className={styles.chipContainer}>
-              <Chip keywords={recentUsers} onDelete={handleDeleteChip} />
+              <Chip
+                keywords={recentUsers}
+                onDelete={handleDeleteChip}
+                onSearch={handleChipClick}
+              />
             </div>
             <Card.Root onClick={handleCloseCard}>
               <Card.ProfileImage imageUrl={data.avatar_url} />

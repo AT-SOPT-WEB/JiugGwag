@@ -3,17 +3,21 @@ import * as styles from "./chip.css";
 interface ChipProps {
   keywords: string[];
   onDelete: (keyword: string) => void;
+  onSearch: (keyword: string) => void;
 }
 
-const Chip = ({ keywords, onDelete }: ChipProps) => {
+const Chip = ({ keywords, onDelete, onSearch }: ChipProps) => {
   return (
     <>
       {keywords.map((keyword) => (
-        <button key={keyword} className={styles.chipContainer}>
+        <button
+          key={keyword}
+          className={styles.chipContainer}
+          onClick={() => onSearch(keyword)}
+        >
           {keyword}
           <span
-            onClick={(e) => {
-              e.stopPropagation(); // 상위 버튼 클릭 방지
+            onClick={() => {
               onDelete(keyword);
             }}
           >
