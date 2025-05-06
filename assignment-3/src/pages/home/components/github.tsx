@@ -1,27 +1,14 @@
 import { useState } from "react";
 import SearchBar from "../../../components/searchBar/search-bar";
-import { useCustomQuery } from "../../../utils/useCustomQuery";
 import * as styles from "./github.css";
 import Card from "../../../components/card/card";
-
-interface GihhubDataResponse {
-  avatar_url: string;
-  name: string;
-  login: string;
-  bio: string | "";
-  followers: number;
-  following: number;
-}
+import { useGithubData } from "../hooks/use-github-data";
 
 const Github = () => {
   const [user, setUser] = useState("");
   const [queryUser, setQueryUser] = useState("");
 
-  const isEnabled = !!queryUser;
-  const { data, isLoading, error } = useCustomQuery<GihhubDataResponse>(
-    `https://api.github.com/users/${queryUser}`,
-    isEnabled,
-  );
+  const { data, isLoading, error } = useGithubData(queryUser);
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && user.trim()) {
@@ -29,8 +16,12 @@ const Github = () => {
     }
   };
 
-  const handleOnchange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUser(e.target.value);
+  };
+
+  const handleCloseCard = () => {
+    setQueryUser("");
   };
 
   return (
@@ -40,7 +31,7 @@ const Github = () => {
           <SearchBar
             placeholder="GitHub 프로필을 입력하세요"
             value={user}
-            onChange={handleOnchange}
+            onChange={handleOnChange}
             onKeyDown={handleKeyDown}
           />
         </div>
@@ -53,7 +44,7 @@ const Github = () => {
 
         {data && !error && (
           <div>
-            <Card.Root>
+            <Card.Root onClick={handleCloseCard}>
               <Card.ProfileImage imageUrl={data.avatar_url} />
               <Card.Name name={data.name} />
               <Card.UserId userId={data.login} />

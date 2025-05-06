@@ -3,6 +3,7 @@ import * as styles from "./card.css";
 
 interface RootProps {
   children: ReactNode;
+  onClick: VoidFunction;
 }
 
 interface NameProps {
@@ -26,10 +27,12 @@ interface ProfileImageProps {
   imageUrl: string;
 }
 
-const Root = ({ children }: RootProps) => {
+const Root = ({ children, onClick }: RootProps) => {
   return (
     <div className={styles.cardRootContainer}>
-      <button className={styles.closeButton}>X</button>
+      <button className={styles.closeButton} onClick={onClick}>
+        X
+      </button>
       {children}
     </div>
   );
