@@ -12,6 +12,7 @@ export function useCustomQuery<T>(url: string, enabled: boolean = true) {
 
     const fetchData = async () => {
       setLoading(true);
+      setError(undefined);
       try {
         const response = await fetch(url);
         if (!response.ok) throw new Error("네트워크 응답 없음");
