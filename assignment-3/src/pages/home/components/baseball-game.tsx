@@ -38,9 +38,9 @@ const BaseBallGame = () => {
         setMessage("correct");
         setResult("");
       } else {
-        const res = calculateResult(number, answer);
+        const ressult = calculateResult(number, answer);
         setMessage("wrong");
-        setResult(res);
+        setResult(ressult);
       }
       setNumber("");
     }
