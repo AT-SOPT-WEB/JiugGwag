@@ -11,7 +11,7 @@ const Message = ({ message, result }: MessageProps) => {
       content = "서로 다른 숫자 3자리를 입력해주세요!";
       break;
     case "correct":
-      content = "게임 승리!";
+      content = "정답입니다! 3초뒤에 게임이 리셋 됩니다.";
       break;
     case "wrong":
       content = result;

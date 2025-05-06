@@ -15,10 +15,14 @@ const BaseBallGame = () => {
   const [result, setResult] = useState("");
 
   useEffect(() => {
+    handleCreateAnswer();
+  }, []);
+
+  const handleCreateAnswer = () => {
     const random = generateRandomNumber();
     setAnswer(random);
     console.log("랜덤 정답:", random);
-  }, []);
+  };
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNumber(e.target.value);
@@ -37,6 +41,10 @@ const BaseBallGame = () => {
       if (number === answer) {
         setMessage("correct");
         setResult("");
+        setTimeout(() => {
+          handleCreateAnswer();
+          setMessage("");
+        }, 3000);
       } else {
         const ressult = calculateResult(number, answer);
         setMessage("wrong");
@@ -55,6 +63,8 @@ const BaseBallGame = () => {
           onChange={handleOnChange}
           onKeyDown={handleKeyDown}
         />
+      </div>
+      <div>
         <Message message={message} result={result} />
       </div>
     </section>
