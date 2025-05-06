@@ -1,14 +1,14 @@
 import { useState } from "react";
-import SearchBar from "../../../components/searchBar/search-bar";
-import * as styles from "./page.css";
-import Card from "../../../components/card/card";
 import { useGithubData } from "../hooks/use-github-data";
-import Chip from "../../../components/chip/chip";
 import {
   getRecentUsers,
   removeRecentUser,
   saveRecentUser,
 } from "../../../utils/local-storage";
+import SearchBar from "../../../components/searchBar/search-bar";
+import * as styles from "./page.css";
+import Chip from "../../../components/chip/chip";
+import Card from "../../../components/card/card";
 
 const Github = () => {
   const [recentUsers, setRecentUsers] = useState<string[]>([]);
@@ -18,13 +18,23 @@ const Github = () => {
 
   const { data, isLoading, error } = useGithubData(queryUser);
 
+  const validateInput = (input: string) => input.trim().length > 0;
+
+  const updateQueryUser = (trimmedUser: string) => {
+    setQueryUser(trimmedUser);
+    setIsCardVisible(true);
+  };
+
+  const updateRecentUsers = (trimmedUser: string) => {
+    saveRecentUser(trimmedUser);
+    setRecentUsers(getRecentUsers());
+  };
+
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter" && user.trim()) {
+    if (e.key === "Enter" && validateInput(user)) {
       const trimmedUser = user.trim();
-      setQueryUser(trimmedUser);
-      setIsCardVisible(true);
-      saveRecentUser(trimmedUser);
-      setRecentUsers(getRecentUsers());
+      updateQueryUser(trimmedUser);
+      updateRecentUsers(trimmedUser);
     }
   };
 
