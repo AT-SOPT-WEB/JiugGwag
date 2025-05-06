@@ -9,3 +9,9 @@ export const gihubContainer = style({
   alignItems: "center",
   gap: "2rem",
 });
+
+export const contentContainer = style({
+  display: "flex",
+  flexDirection: "column",
+  gap: "1.5rem",
+});

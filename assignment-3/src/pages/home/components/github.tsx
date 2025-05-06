@@ -3,6 +3,7 @@ import SearchBar from "../../../components/searchBar/search-bar";
 import * as styles from "./github.css";
 import Card from "../../../components/card/card";
 import { useGithubData } from "../hooks/use-github-data";
+import Chip from "../../../components/chip/chip";
 
 const Github = () => {
   const [user, setUser] = useState("");
@@ -46,7 +47,8 @@ const Github = () => {
         )}
 
         {data && !error && isCardVisible && (
-          <div>
+          <div className={styles.contentContainer}>
+            <Chip keyword={data.name} />
             <Card.Root onClick={handleCloseCard}>
               <Card.ProfileImage imageUrl={data.avatar_url} />
               <Card.Name name={data.name} html_url={data.html_url} />
