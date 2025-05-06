@@ -18,7 +18,7 @@ const Github = () => {
   const [queryUser, setQueryUser] = useState("");
 
   const isEnabled = !!queryUser;
-  const { data, isLoading } = useCustomQuery<GihhubDataResponse>(
+  const { data, isLoading, error } = useCustomQuery<GihhubDataResponse>(
     `https://api.github.com/users/${queryUser}`,
     isEnabled,
   );
@@ -44,8 +44,14 @@ const Github = () => {
             onKeyDown={handleKeyDown}
           />
         </div>
-        {isLoading && <p>로딩 중</p>}
-        {data && (
+
+        {isLoading && <p>로딩 중...</p>}
+
+        {error && (
+          <p>결과를 찾을 수 없습니다. 입력한 사용자명을 다시 확인해주세요.</p>
+        )}
+
+        {data && !error && (
           <div>
             <Card.Root>
               <Card.ProfileImage imageUrl={data.avatar_url} />
