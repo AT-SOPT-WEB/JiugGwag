@@ -1,5 +1,5 @@
 interface MessageProps {
-  message: "warning" | "correct" | "wrong";
+  message: "warning" | "correct" | "wrong" | "";
   result?: string;
 }
 
