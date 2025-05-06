@@ -15,7 +15,7 @@ const BaseBallGame = () => {
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const input = e.target.value;
-    if (/^\d*$/.test(input)) {
+    if (/^\d*$/.test(input) && input.length <= 3) {
       setNumber(input);
     }
   };
