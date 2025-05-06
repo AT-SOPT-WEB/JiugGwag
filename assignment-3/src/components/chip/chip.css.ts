@@ -8,7 +8,6 @@ export const chipContainer = style({
   width: "5rem",
   height: "3rem",
   color: themeVars.color.black,
-  fontSize: "1.5rem",
   cursor: "pointer",
   borderRadius: "2rem",
   border: `1px solid ${themeVars.color.gray500}`,

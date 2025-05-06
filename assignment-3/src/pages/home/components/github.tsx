@@ -4,6 +4,7 @@ import * as styles from "./github.css";
 import Card from "../../../components/card/card";
 import { useGithubData } from "../hooks/use-github-data";
 import Chip from "../../../components/chip/chip";
+import { saveRecentUser } from "../../../utils/local-storage";
 
 const Github = () => {
   const [user, setUser] = useState("");
@@ -14,8 +15,10 @@ const Github = () => {
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && user.trim()) {
-      setQueryUser(user.trim());
+      const trimmedUser = user.trim();
+      setQueryUser(trimmedUser);
       setIsCardVisible(true);
+      saveRecentUser(trimmedUser);
     }
   };
 
