@@ -3,8 +3,20 @@ import { themeVars } from "../../styles";
 
 export const cardRootContainer = style({
   width: "30rem",
-  height: "50rem",
-  backgroundClip: themeVars.color.teal600,
+  height: "100%",
+  padding: "1rem",
+  backgroundColor: themeVars.color.teal600,
+  position: "relative",
+});
+
+export const closeButton = style({
+  position: "absolute",
+  top: "1rem",
+  right: "2rem",
+  background: "transparent",
+  border: "none",
+  fontSize: "1.5rem",
+  cursor: "pointer",
 });
 
 export const cardNameText = style({

@@ -27,7 +27,12 @@ interface ProfileImageProps {
 }
 
 const Root = ({ children }: RootProps) => {
-  return <div className={styles.cardRootContainer}>{children}</div>;
+  return (
+    <div className={styles.cardRootContainer}>
+      <button className={styles.closeButton}>X</button>
+      {children}
+    </div>
+  );
 };
 
 const Name = ({ name }: NameProps) => {
