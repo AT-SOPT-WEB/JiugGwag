@@ -10,6 +10,7 @@ const Chip = ({ keywords }: ChipProps) => {
       {keywords.map((keyword) => (
         <button key={keyword} className={styles.chipContainer}>
           {keyword}
+          <p>X</p>
         </button>
       ))}
     </>
