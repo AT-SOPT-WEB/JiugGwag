@@ -1,6 +1,6 @@
 interface MessageProps {
   message: "warning" | "correct" | "wrong" | "";
-  result?: string;
+  result?: string[];
 }
 
 const Message = ({ message, result }: MessageProps) => {
