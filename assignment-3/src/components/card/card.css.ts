@@ -23,6 +23,7 @@ export const cardNameText = style({
   fontSize: "2rem",
   color: themeVars.color.black,
   fontWeight: "bold",
+  cursor: "pointer",
 });
 
 export const subText = style({

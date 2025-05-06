@@ -10,6 +10,7 @@ const Github = () => {
   const [isCardVisible, setIsCardVisible] = useState(false);
 
   const { data, isLoading, error } = useGithubData(queryUser);
+  console.log(data?.html_url);
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && user.trim()) {
@@ -51,7 +52,7 @@ const Github = () => {
             <div>
               <Card.Root onClick={handleCloseCard}>
                 <Card.ProfileImage imageUrl={data.avatar_url} />
-                <Card.Name name={data.name} />
+                <Card.Name name={data.name} html_url={data.html_url} />
                 <Card.UserId userId={data.login} />
                 <Card.UserDescription description={data.bio} />
                 <Card.Button

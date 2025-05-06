@@ -8,6 +8,7 @@ interface RootProps {
 
 interface NameProps {
   name: string;
+  html_url: string;
 }
 
 interface UserIdProps {
@@ -38,8 +39,17 @@ const Root = ({ children, onClick }: RootProps) => {
   );
 };
 
-const Name = ({ name }: NameProps) => {
-  return <p className={styles.cardNameText}>{name}</p>;
+const Name = ({ name, html_url }: NameProps) => {
+  return (
+    <a
+      className={styles.cardNameText}
+      href={html_url}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {name}
+    </a>
+  );
 };
 
 const UserId = ({ userId }: UserIdProps) => {

@@ -5,4 +5,5 @@ export interface GihhubDataResponse {
   bio: string | "";
   followers: number;
   following: number;
+  html_url: string;
 }
