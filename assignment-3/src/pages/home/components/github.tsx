@@ -45,22 +45,20 @@ const Github = () => {
           <p>결과를 찾을 수 없습니다. 입력한 사용자명을 다시 확인해주세요.</p>
         )}
 
-        {data &&
-          !error &&
-          isCardVisible && ( // isCardVisible이 true일 때만 카드가 보임
-            <div>
-              <Card.Root onClick={handleCloseCard}>
-                <Card.ProfileImage imageUrl={data.avatar_url} />
-                <Card.Name name={data.name} html_url={data.html_url} />
-                <Card.UserId userId={data.login} />
-                <Card.UserDescription description={data.bio} />
-                <Card.Button
-                  followers={data.followers}
-                  following={data.following}
-                />
-              </Card.Root>
-            </div>
-          )}
+        {data && !error && isCardVisible && (
+          <div>
+            <Card.Root onClick={handleCloseCard}>
+              <Card.ProfileImage imageUrl={data.avatar_url} />
+              <Card.Name name={data.name} html_url={data.html_url} />
+              <Card.UserId userId={data.login} />
+              <Card.UserDescription description={data.bio} />
+              <Card.Button
+                followers={data.followers}
+                following={data.following}
+              />
+            </Card.Root>
+          </div>
+        )}
       </section>
     </>
   );
