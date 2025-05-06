@@ -6,6 +6,8 @@ import { generateRandomNumber } from "../../../utils/random-number";
 import { calculateResult } from "../hooks/calculate-result";
 import { isValidNumber } from "../hooks/validate-number";
 
+const MAX_COUNT = 10;
+
 const BaseBallGame = () => {
   const [number, setNumber] = useState("");
   const [answer, setAnswer] = useState("");
@@ -13,6 +15,7 @@ const BaseBallGame = () => {
     "",
   );
   const [result, setResult] = useState("");
+  const [count, setCount] = useState(1);
 
   useEffect(() => {
     handleCreateAnswer();
@@ -21,7 +24,7 @@ const BaseBallGame = () => {
   const handleCreateAnswer = () => {
     const random = generateRandomNumber();
     setAnswer(random);
-    console.log("랜덤 정답:", random);
+    console.log(random);
   };
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -33,6 +36,16 @@ const BaseBallGame = () => {
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
+      if (count === MAX_COUNT) {
+        setMessage("wrong");
+        setResult("게임 오버! 정답은 " + answer + "입니다.");
+        setTimeout(() => {
+          handleCreateAnswer();
+          setMessage("");
+          setNumber("");
+        }, 5000);
+        return;
+      }
       if (!isValidNumber(number)) {
         setMessage("warning");
         setResult("");
@@ -50,6 +63,7 @@ const BaseBallGame = () => {
         setMessage("wrong");
         setResult(ressult);
       }
+      setCount((prev) => prev + 1);
       setNumber("");
     }
   };
