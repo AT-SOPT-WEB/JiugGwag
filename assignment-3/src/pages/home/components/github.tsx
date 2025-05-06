@@ -7,12 +7,14 @@ import { useGithubData } from "../hooks/use-github-data";
 const Github = () => {
   const [user, setUser] = useState("");
   const [queryUser, setQueryUser] = useState("");
+  const [isCardVisible, setIsCardVisible] = useState(false);
 
   const { data, isLoading, error } = useGithubData(queryUser);
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && user.trim()) {
       setQueryUser(user.trim());
+      setIsCardVisible(true);
     }
   };
 
@@ -21,7 +23,8 @@ const Github = () => {
   };
 
   const handleCloseCard = () => {
-    setQueryUser("");
+    setIsCardVisible(false);
+    setUser("");
   };
 
   return (
@@ -42,20 +45,22 @@ const Github = () => {
           <p>결과를 찾을 수 없습니다. 입력한 사용자명을 다시 확인해주세요.</p>
         )}
 
-        {data && !error && (
-          <div>
-            <Card.Root onClick={handleCloseCard}>
-              <Card.ProfileImage imageUrl={data.avatar_url} />
-              <Card.Name name={data.name} />
-              <Card.UserId userId={data.login} />
-              <Card.UserDescription description={data.bio} />
-              <Card.Button
-                followers={data.followers}
-                following={data.following}
-              />
-            </Card.Root>
-          </div>
-        )}
+        {data &&
+          !error &&
+          isCardVisible && ( // isCardVisible이 true일 때만 카드가 보임
+            <div>
+              <Card.Root onClick={handleCloseCard}>
+                <Card.ProfileImage imageUrl={data.avatar_url} />
+                <Card.Name name={data.name} />
+                <Card.UserId userId={data.login} />
+                <Card.UserDescription description={data.bio} />
+                <Card.Button
+                  followers={data.followers}
+                  following={data.following}
+                />
+              </Card.Root>
+            </div>
+          )}
       </section>
     </>
   );
