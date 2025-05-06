@@ -4,9 +4,10 @@ import * as styles from "./github.css";
 import Card from "../../../components/card/card";
 import { useGithubData } from "../hooks/use-github-data";
 import Chip from "../../../components/chip/chip";
-import { saveRecentUser } from "../../../utils/local-storage";
+import { getRecentUsers, saveRecentUser } from "../../../utils/local-storage";
 
 const Github = () => {
+  const [recentUsers, setRecentUsers] = useState<string[]>([]);
   const [user, setUser] = useState("");
   const [queryUser, setQueryUser] = useState("");
   const [isCardVisible, setIsCardVisible] = useState(false);
@@ -19,6 +20,7 @@ const Github = () => {
       setQueryUser(trimmedUser);
       setIsCardVisible(true);
       saveRecentUser(trimmedUser);
+      setRecentUsers(getRecentUsers());
     }
   };
 
@@ -51,7 +53,9 @@ const Github = () => {
 
         {data && !error && isCardVisible && (
           <div className={styles.contentContainer}>
-            <Chip keyword={data.name} />
+            <div className={styles.chipContainer}>
+              <Chip keywords={recentUsers} />
+            </div>
             <Card.Root onClick={handleCloseCard}>
               <Card.ProfileImage imageUrl={data.avatar_url} />
               <Card.Name name={data.name} html_url={data.html_url} />

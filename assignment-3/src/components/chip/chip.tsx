@@ -1,11 +1,19 @@
 import * as styles from "./chip.css";
 
 interface ChipProps {
-  keyword: string;
+  keywords: string[];
 }
 
-const Chip = ({ keyword }: ChipProps) => {
-  return <button className={styles.chipContainer}>{keyword}</button>;
+const Chip = ({ keywords }: ChipProps) => {
+  return (
+    <>
+      {keywords.map((keyword) => (
+        <button key={keyword} className={styles.chipContainer}>
+          {keyword}
+        </button>
+      ))}
+    </>
+  );
 };
 
 export default Chip;

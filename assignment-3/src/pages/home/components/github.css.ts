@@ -15,3 +15,9 @@ export const contentContainer = style({
   flexDirection: "column",
   gap: "1.5rem",
 });
+
+export const chipContainer = style({
+  width: "100%",
+  display: "flex",
+  gap: "1rem",
+});
