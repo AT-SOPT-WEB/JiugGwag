@@ -1,6 +1,6 @@
 import { useState } from "react";
 import SearchBar from "../../../components/searchBar/search-bar";
-import * as style from "./github.css";
+import * as style from "./page.css";
 
 const BaseBallGame = () => {
   const [number, setNumber] = useState("");
@@ -9,7 +9,7 @@ const BaseBallGame = () => {
   };
 
   return (
-    <section className={style.gihubContainer}>
+    <section className={style.homePageContainer}>
       <div>
         <SearchBar
           placeholder="3자리 숫자를 입력해주세요"

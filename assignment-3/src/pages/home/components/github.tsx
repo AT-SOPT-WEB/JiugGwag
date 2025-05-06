@@ -1,6 +1,6 @@
 import { useState } from "react";
 import SearchBar from "../../../components/searchBar/search-bar";
-import * as styles from "./github.css";
+import * as styles from "./page.css";
 import Card from "../../../components/card/card";
 import { useGithubData } from "../hooks/use-github-data";
 import Chip from "../../../components/chip/chip";
@@ -48,7 +48,7 @@ const Github = () => {
 
   return (
     <>
-      <section className={styles.gihubContainer}>
+      <section className={styles.homePageContainer}>
         <div>
           <SearchBar
             placeholder="GitHub 프로필을 입력하세요"

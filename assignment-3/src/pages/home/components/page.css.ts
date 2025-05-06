@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 
-export const gihubContainer = style({
+export const homePageContainer = style({
   width: "100%",
   height: "80svh",
   display: "flex",
