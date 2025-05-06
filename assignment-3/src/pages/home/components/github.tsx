@@ -4,7 +4,11 @@ import * as styles from "./github.css";
 import Card from "../../../components/card/card";
 import { useGithubData } from "../hooks/use-github-data";
 import Chip from "../../../components/chip/chip";
-import { getRecentUsers, saveRecentUser } from "../../../utils/local-storage";
+import {
+  getRecentUsers,
+  removeRecentUser,
+  saveRecentUser,
+} from "../../../utils/local-storage";
 
 const Github = () => {
   const [recentUsers, setRecentUsers] = useState<string[]>([]);
@@ -33,6 +37,11 @@ const Github = () => {
     setUser("");
   };
 
+  const handleDeleteChip = (keyword: string) => {
+    removeRecentUser(keyword);
+    setRecentUsers(getRecentUsers());
+  };
+
   return (
     <>
       <section className={styles.gihubContainer}>
@@ -54,7 +63,7 @@ const Github = () => {
         {data && !error && isCardVisible && (
           <div className={styles.contentContainer}>
             <div className={styles.chipContainer}>
-              <Chip keywords={recentUsers} />
+              <Chip keywords={recentUsers} onDelete={handleDeleteChip} />
             </div>
             <Card.Root onClick={handleCloseCard}>
               <Card.ProfileImage imageUrl={data.avatar_url} />
